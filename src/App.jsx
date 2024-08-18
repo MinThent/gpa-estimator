@@ -1,13 +1,13 @@
-import GradeInput from "./components/GradeInput";
 import GradesWrapper from "./components/GradesWrapper";
 import { useState } from "react";
+import Hero from "./components/Hero";
 
 function App() {
   const [aPlus, setAPlus] = useState(0);
   const [a, setA] = useState(0);
   const [b, setB] = useState(0);
   const [c, setC] = useState(0);
-  const [totalCredits, setTotalCredits] = useState(0);
+  const totalCredits = (aPlus + a + b + c) * 2;
   const [estimation, setEstimation] = useState(null);
   const calculateEstimation = () => {
     if (totalCredits === 0 ) {
@@ -19,7 +19,8 @@ function App() {
   }
 
   return (
-    <>
+    <div>
+      <Hero />
       <GradesWrapper
         aPlus={aPlus}
         setAPlus={setAPlus}
@@ -30,12 +31,11 @@ function App() {
         c={c}
         setC={setC}
         totalCredits={totalCredits}
-        setTotalCredits={setTotalCredits}
         estimation={estimation}
         setEstimation={setEstimation}
         calculateEstimation={calculateEstimation}
       />
-    </>
+    </div>
   );
 }
 

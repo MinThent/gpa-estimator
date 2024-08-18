@@ -11,7 +11,6 @@ export default function GradesWrapper({
   c,
   setC,
   totalCredits,
-  setTotalCredits,
   estimation,
   calculateEstimation,
 }) {
@@ -25,11 +24,14 @@ export default function GradesWrapper({
       <GradeInput text="Number of A Subjects" value={a} setValue={setA} />
       <GradeInput text="Number of B Subjects" value={b} setValue={setB} />
       <GradeInput text="Number of C Subjects" value={c} setValue={setC} />
-      <GradeInput
-        text="Total Credits"
-        value={totalCredits}
-        setValue={setTotalCredits}
-      />
+
+      <div className="flex flex-col items-start w-4/5 sm:w-2/5 md:w-2/5 lg:w-2/5">
+      <label className="mb-1 font-medium text-amber-50 text-sm">
+        Your Total Credits
+      </label>
+      <input className="block px-3 py-2 border rounded focus:ring-2 focus:ring-primary w-full transition-all duration-200 peer" readOnly placeholder={totalCredits}></input>
+      </div>
+
       <button
         type="button"
         onClick={calculateEstimation}
